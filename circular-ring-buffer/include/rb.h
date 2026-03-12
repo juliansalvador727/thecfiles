@@ -5,9 +5,17 @@
 
 #define CAPACITY 8
 
+typedef enum RbPolicy {
+    OVERWRITE,
+    REJECT,
+} RbPolicy;
+
 typedef struct Rb {
     size_t size[CAPACITY];
-    size_t top;
+    size_t head;
+    size_t tail;
+    size_t count;
+    RbPolicy policy;
 } Rb;
 
 void rb_init(Rb* rb, size_t* top);
